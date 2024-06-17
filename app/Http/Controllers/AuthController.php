@@ -29,7 +29,7 @@ class AuthController extends Controller
                   'message'=>$validation->errors(),
                 ],200);
             }
-            if(Auth::attempt($request->only(['email','password']))){
+            if(!Auth::attempt($request->only(['email','password']))){
                 return response()->json([
                     'sucsess'=>0,
                     'result'=>null,
@@ -58,7 +58,12 @@ class AuthController extends Controller
     }
     function register(Request $request)
     {
-        try {
+        return User::create([
+            'email'=>$request->email,
+            'name'=>$request->name,
+            'password'=>Hash::make($request->password),
+        ]);
+        /*try {
             $validation = Validator::make($request->all(), [
                 "email" => 'required|email|unique:users,email',
                 'name' => 'required|string',
@@ -97,6 +102,6 @@ class AuthController extends Controller
                 'validator errors'=>$e,
                 'Exceptions'=>$e
             ],200);
-        }
+        }*/
     }
 }

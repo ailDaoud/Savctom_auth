@@ -9,6 +9,6 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::group(attributes:["middleware"=>"auth:sanctum"],routes:function(){
-    Route::post('/login',[AuthController::class,'login']);
-    Route::post('/register',[AuthController::class,'register']);
+    Route::post('loginn',[AuthController::class,'login']);
+    Route::post('registe',[AuthController::class,'register']);
 });
