@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use PharIo\Manifest\AuthorElement;
+use App\Models\User;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,3 +28,9 @@ Route::group(attributes:["middleware"=>"auth:sanctum"],routes:function(){
 Route::controller(AuthController::class)->group(function () {
     Route::get('/userrr/aaa', 'index');
 });*/
+
+Route::post('loginn',[AuthController::class,'login']);
+Route::post('registe',[AuthController::class,'register']);
+Route::get('/u', function () {
+    return User::all();
+});

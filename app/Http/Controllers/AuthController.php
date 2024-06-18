@@ -58,12 +58,12 @@ class AuthController extends Controller
     }
     function register(Request $request)
     {
-        return User::create([
+       /* return User::create([
             'email'=>$request->email,
             'name'=>$request->name,
             'password'=>Hash::make($request->password),
-        ]);
-        /*try {
+        ]);*/
+        try {
             $validation = Validator::make($request->all(), [
                 "email" => 'required|email|unique:users,email',
                 'name' => 'required|string',
@@ -102,7 +102,7 @@ class AuthController extends Controller
                 'validator errors'=>$e,
                 'Exceptions'=>$e
             ],200);
-        }*/
+        }
     }
     public function index()
     {
