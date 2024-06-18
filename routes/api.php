@@ -8,7 +8,15 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::group(attributes:["middleware"=>"auth:sanctum"],routes:function(){
+/*Route::group(["middleware"=>"auth:sanctum"],function(){
     Route::post('loginn',[AuthController::class,'login']);
     Route::post('registe',[AuthController::class,'register']);
-});
+});*/
+
+//["middleware"=>"auth:sanctum"],
+
+
+    Route::post('loginn',[AuthController::class,'login']);
+    Route::post('registe',[AuthController::class,'register']);
+
+

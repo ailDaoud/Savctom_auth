@@ -9,7 +9,7 @@ Route::get('/', function () {
 });
 
 
-Route::post('/login',[AuthController::class,'login']);
+/*Route::post('/login',[AuthController::class,'login']);
 Route::post('/register',[AuthController::class,'register']);
 
 
@@ -22,3 +22,8 @@ Route::group(attributes:["middleware"=>"auth:sanctum"],routes:function(){
     Route::post('/login',[AuthController::class,'login']);
     Route::post('/register',[AuthController::class,'register']);
 });
+
+
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/userrr/aaa', 'index');
+});*/

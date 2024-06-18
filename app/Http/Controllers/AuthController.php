@@ -104,4 +104,12 @@ class AuthController extends Controller
             ],200);
         }*/
     }
+    public function index()
+    {
+        $users = User::all();
+        return response()->json([
+            'sucsess'=>0,
+            'result'=>null,
+            'message'=>'register first',
+          ],200);}
 }
